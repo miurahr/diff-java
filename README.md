@@ -16,9 +16,9 @@ The GPL restrictions do not apply to purely dynamically loaded code (otherwise, 
 
 # Classes
 
-Diff.java The Diff algorithm v1.15
-DiffTest.java Test for bugs submitted by users.
-DiffPrint.java A base class for printing the change list in 'ed' style to test the algorithm. Could form the basis for a complete Java implementation of all the GNU diff comparison and output options.
+* Diff.java The Diff algorithm v1.15
+* DiffTest.java Test for bugs submitted by users.
+* DiffPrint.java A base class for printing the change list in 'ed' style to test the algorithm. Could form the basis for a complete Java implementation of all the GNU diff comparison and output options.
 
 # TODO
 
