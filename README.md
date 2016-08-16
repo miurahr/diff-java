@@ -1,5 +1,7 @@
 # GNU Diff for Java
 
+The Diff for java is originally developed by Stuart D. Gathman (http://www.bmsi.com/java/)
+Here is a forked project to improve original work to be more robust and  easy to use.
 
 # Original document
 
