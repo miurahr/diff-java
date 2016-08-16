@@ -26,23 +26,22 @@
  */
 package bmsi.util;
 
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.framework.Test;
+import static org.testng.Assert.*;
+
+import org.testng.annotations.*;
+
 import java.io.StringWriter;
 
 /** Test Diff behavior.
   @author Stuart D. Gathman
   Copyright (C) 2002 Business Management Systems, Inc.
  */
-public class DiffTest extends TestCase {
+public class DiffTest {
 
   private static String[] f1 = { "hello" };
   private static String[] f2 = { "hello", "bye" };
 
-
-  public DiffTest(String name) { super(name); }
-
+  @Test
   public void testReverse() {
     Diff diff = new Diff(f1,f2);
     Diff.change script = diff.diff_2(true);
@@ -60,6 +59,7 @@ public class DiffTest extends TestCase {
 
   /** This was causing an array out of bounds exception.
     Submitted by Markus Oellinger. */
+  @Test
   public void testSwap() {
     final Integer[] l1 = loadArray(new int[] { 1,2,4,7,9,35,56,58,76 });
     final Integer[] l2 = loadArray(new int[] { 1,2,4,76,9,35,56,58,7 });
@@ -93,6 +93,7 @@ public class DiffTest extends TestCase {
   }
 
   /** Test passing equivalence arrays. */
+  @Test
   public void testInt() {
     final int[] l1 = loadChar("abcdef");
     final int[] l2 = loadChar("def");
@@ -108,6 +109,7 @@ public class DiffTest extends TestCase {
     return a;
   }
 
+  @Test
   private void diffChars(String s1,String s2) {
     final int[] l1 = loadChar(s1);
     final int[] l2 = loadChar(s2);
@@ -130,6 +132,7 @@ public class DiffTest extends TestCase {
     were causing an array out of bounds exception.
     Submitted by Cristian-Augustin Saita and Adam Rabung.
    */
+  @Test
   public void testContext() {
     Diff diff = new Diff(test1,test2);
     Diff.change script = diff.diff_2(false);
@@ -146,6 +149,7 @@ public class DiffTest extends TestCase {
   /** UnifiedPrint crasher.
    * Submitted by Dennis Hendriks
    */
+  @Test
   public void testUnifiedPrint() {
       String data1[] = {"import \"import3.seal\";",
 			"",
@@ -175,6 +179,7 @@ public class DiffTest extends TestCase {
   } 
 
   /** Submitted by Kristian Eide <kreide@gmail.com> */
+  @Test
   public void testUnified() {
         String[] expected = new String[] { "a", "", "a" };
         String[] actual = new String[] { "", "" };
@@ -188,10 +193,5 @@ public class DiffTest extends TestCase {
         p.print_script(c);
 	diffChars(res,sw.toString());
 	assertEquals(res,sw.toString());
-  }
-
-  public static void main(String[] argv) {
-    TestSuite suite = new TestSuite(DiffTest.class);
-    junit.textui.TestRunner.run(suite);
   }
 }

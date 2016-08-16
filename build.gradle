@@ -1,7 +1,15 @@
 apply plugin: 'java'
 
+repositories {
+  jcenter()
+}
+
 dependencies {
-  testCompile 'junit:junit:4.11'
+  testCompile 'org.testng:testng:6.9.12'
+}
+
+test {
+  useTestNG()
 }
 
 task wrapper(type: Wrapper) {
